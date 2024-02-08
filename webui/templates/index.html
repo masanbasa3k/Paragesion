@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+</head>
+<body>
+    <h1>Input Form</h1>
+    <form action="/process_input" method="POST">
+        <label for="input">Enter your link / links:</label><br>
+        <input type="text" id="input" name="input"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <form action="/process_question" method="post">
+        <label for="questionInput">Enter Your Question:</label><br>
+        <input type="text" id="questionInput" name="questionInput"><br>
+        <button type="submit">Submit</button>
+      </form>
+</body>
+</html>
