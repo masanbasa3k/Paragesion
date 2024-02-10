@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
-import sys
-sys.path.append("paragesion")
+# import sys
+# sys.path.append("Paragesion")
 
 from take_data import concatenate_paragraphs_from_urls
 
