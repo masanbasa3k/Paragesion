@@ -7,16 +7,19 @@
 </head>
 <body>
     <h1>Input Form</h1>
-    <form action="/process_input" method="POST">
+    <form action="/" method="POST">
         <label for="input">Enter your link / links:</label><br>
-        <input type="text" id="input" name="input"><br>
+        <input type="text" id="input" name="input" value="{{ input_data }}"><label for="input"> {{ status }}</label><br>
         <input type="submit" value="Submit">
     </form>
 
-    <form action="/process_question" method="post">
+    <form action="/" method="POST">
         <label for="questionInput">Enter Your Question:</label><br>
         <input type="text" id="questionInput" name="questionInput"><br>
         <button type="submit">Submit</button>
       </form>
+
+    <h2>Output</h2>
+    <p>{{ input_paragraph }}</p>
 </body>
 </html>
