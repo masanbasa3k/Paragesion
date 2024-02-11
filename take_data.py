@@ -33,5 +33,3 @@ if __name__ == '__main__':
     # Test the function
     result = concatenate_paragraphs_from_urls("https://en.wikipedia.org/wiki/Duck_typing, https://en.wikipedia.org/wiki/Abstract_type")
     print(result)
-
-# https://en.wikipedia.org/wiki/Duck_typing, https://en.wikipedia.org/wiki/Abstract_type

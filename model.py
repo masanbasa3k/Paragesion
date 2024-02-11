@@ -9,7 +9,7 @@ def question_answering(input_data, model_name="deepset/roberta-base-squad2"):
     nlp = pipeline('question-answering', model=model, tokenizer=tokenizer)
     res = nlp(input_data)
 
-    return res
+    return res['answer']
 
 if __name__ == "__main__":
     # Example usage:

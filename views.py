@@ -1,24 +1,32 @@
 from flask import Blueprint, render_template, request
 
 from take_data import concatenate_paragraphs_from_urls
+from model import question_answering
 
 views = Blueprint(__name__, "views")
-input_data = None
-status = ''
 
 @views.route('/', methods=['POST','GET'])
 def home():
-    input = request.form['input']
-    input_paragraph = concatenate_paragraphs_from_urls(input)
-    if input_paragraph != "":
-        return render_template('index.html', status='basariii', input_paragraph=input_paragraph)
+    if request.method == 'POST':
+        input_data = request.form.get('input', '')  # Formdan veriyi al
+        input_paragraph = concatenate_paragraphs_from_urls(input_data)  # Veriyi işle
+        if input_paragraph:
+            return render_template('index.html', status='Success', input_paragraph=input_paragraph)
+        else:
+            return render_template('index.html', status='Data not taken', input_paragraph='')
     else:
-        return render_template('index.html', status='data not taken', input_paragraph=input_paragraph)
+        return render_template('index.html', status='', input_paragraph='')
 
-@views.route('/', methods=['POST'])
-def process_question():
-    question = request.form['questionInput']
-    # Burada alınan soruyu kullanarak istediğiniz işlemi gerçekleştirebilirsiniz.
-    # Örneğin, bu soruyu bir veritabanına kaydedebilir veya başka bir uygulamaya gönderebilirsiniz.
-    print("Received question:", question)
-    return 'Question received: ' + question
+
+@views.route('/ask', methods=['POST','GET'])
+def ask_question():
+    input_paragraph = request.form.get('input_paragraph', '')  # Formdan input_paragraph verisini al
+    question = request.form.get('questionInput', '')
+    answer = 'answer will be here...'
+    input_data = {
+        'question': question,
+        'context': input_paragraph
+    }
+    if input_paragraph and question:
+        answer = question_answering(input_data)
+    return render_template('index.html', input_paragraph=input_paragraph, question=question, answer=answer)

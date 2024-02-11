@@ -9,17 +9,20 @@
     <h1>Input Form</h1>
     <form action="/" method="POST">
         <label for="input">Enter your link / links:</label><br>
-        <input type="text" id="input" name="input" value="{{ input_data }}"><label for="input"> {{ status }}</label><br>
+        <input type="text" id="input" name="input" value="{{ input_data }}"><p> {{ status }}</p><br>
         <input type="submit" value="Submit">
     </form>
-
-    <form action="/" method="POST">
+    
+    <h1>Question Form</h1>
+    <form action="/ask" method="POST">
         <label for="questionInput">Enter Your Question:</label><br>
-        <input type="text" id="questionInput" name="questionInput"><br>
-        <button type="submit">Submit</button>
-      </form>
+        <input type="text" id="questionInput" name="questionInput"><p> {{ question }}</p><br>
+        <input type="submit" value="Submit"><br>
+        <p> {{ answer }}</p>
+        <input type="hidden" name="input_paragraph" value="{{ input_paragraph }}">
+    </form>
 
-    <h2>Output</h2>
+    <h2>Data</h2>
     <p>{{ input_paragraph }}</p>
 </body>
 </html>
