@@ -9,10 +9,11 @@ def get_paragraph_from_url(url):
         # Parse the HTML content
         soup = BeautifulSoup(response.content, 'html.parser')
         
-        # Get all text content from the HTML and convert it to a single paragraph
-        paragraph = soup.get_text(separator='\n')
+        # Get text content from <p> tags and concatenate them
+        paragraphs = soup.find_all('p')
+        paragraph_text = '\n'.join([p.get_text() for p in paragraphs])
         
-        return paragraph
+        return paragraph_text
     except Exception as e:
         print(f"An error occurred while fetching content from {url}: {e}")
         return ""
