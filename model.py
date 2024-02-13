@@ -1,15 +1,15 @@
-from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
+from transformers import pipeline
+question_answerer = pipeline("question-answering", model='distilbert-base-cased-distilled-squad')
 
-def question_answering(input_data, model_name="deepset/roberta-base-squad2"):
-    # Load model & tokenizer
-    model = AutoModelForQuestionAnswering.from_pretrained(model_name)
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
+def question_answering(input_data):
+    
+    question, context = input_data['question'], input_data['context']
 
-    # Get predictions
-    nlp = pipeline('question-answering', model=model, tokenizer=tokenizer)
-    res = nlp(input_data)
+    result = question_answerer(
+        question=question,
+        context=context)
 
-    return res['answer']
+    return result['answer']
 
 if __name__ == "__main__":
     # Example usage:
