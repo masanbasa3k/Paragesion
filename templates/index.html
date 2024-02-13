@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Form</title>
+    <title>Paragesion</title>
+    <!-- adding index.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
 </head>
 <body>
-    <h1>Input Form</h1>
+    <h1>Data Link / Links</h1>
     <form action="/" method="POST">
-        <label for="input">Enter your link / links:</label><br>
-        <input type="text" id="input" name="input" value="{{ input_data }}"><p> {{ status }}</p><br>
-        <input type="submit" value="Submit">
+        <div class="input-container">
+            <input type="text" id="input" name="input" value="{{ input_data }}">
+            <input type="submit" value="Submit">
+        </div>
     </form>
     
-    <h1>Question Form</h1>
+    <h1>Question</h1>
     <form action="/ask" method="POST">
-        <label for="questionInput">Enter Your Question:</label><br>
-        <input type="text" id="questionInput" name="questionInput"><p> {{ question }}</p><br>
-        <input type="submit" value="Submit"><br>
-        <p> {{ answer }}</p>
+        <div class="input-container">
+            <input type="text" id="questionInput" name="questionInput">
+            <input type="submit" value="Submit">
+        </div>
+        <p> {{ question }} : {{ answer }}</p>
         <input type="hidden" name="input_paragraph" value="{{ input_paragraph }}">
     </form>
 
-    <h2>Data</h2>
-    <p>{{ input_paragraph }}</p>
+    <h2>Data showcase</h2>
+    <div class="data-text-container">
+        <p>{{ input_paragraph }}</p>
+    </div>
 </body>
 </html>

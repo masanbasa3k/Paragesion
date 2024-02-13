@@ -1,0 +1,56 @@
+body {
+    background-color: #253d4d;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #db9e43;
+}
+
+.input-container {
+    display: flex;
+    width: 70%; /* Set the width of the input container */
+}
+
+input[type="text"] {
+    background-color: #315f7e;
+    border: 1px solid #9eb6c7;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 50%; /* Set the width of the input to 50% */
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #5485a5;
+    border: 1px solid #9eb6c7;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 20%; /* Set the width of the button to 20% */
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #db9e43;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+.data-text-container {
+    max-height: 400px; /* Set maximum height for the container */
+    overflow-y: auto; /* Add vertical scrollbar when content exceeds the container height */
+}
