@@ -1,0 +1,4 @@
+Flask
+transformers
+beautifulsoup4
+tensorflow
